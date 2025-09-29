@@ -9,7 +9,7 @@ function App() {
   const [emojisData, setEmojisData] = useState('');
   const [selectedCards, setSelectedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
-  const [isGameOver, setIsGameOver] = useState(false);
+  const [allCardsMatched, setAllcardsmatched] = useState(false);
 
   useEffect(() => {
     if (selectedCards.length === 2 && selectedCards[0].name === selectedCards[1].name) {
@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     if (emojisData.length && matchedCards.length === emojisData.length) {
-      setIsGameOver(true)
+      setAllcardsmatched(true)
     }
   }, [matchedCards])
 
