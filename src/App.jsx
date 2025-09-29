@@ -90,15 +90,23 @@ function App() {
     console.log("clicked")
   }
 
+  function resetGame() {
+    setSelectedCards([]);
+    setMatchedCards([]);
+    setAllcardsmatched(false);
+    setIsGameOn(false)
+  }
+
   return (
     <main >
       <h1>Memory!</h1>
       {!isGameOn && <Form handleSubmit={startGame} />}
-      {(isGameOn && !allCardsMatched) && <AssistiveTechInfo
-                                            emojisData={emojisData}
-                                            matchedCards={matchedCards} />
-                                          }
-      {allCardsMatched && <GameOver />}
+      {(isGameOn && !allCardsMatched) 
+        && <AssistiveTechInfo
+              emojisData={emojisData}
+              matchedCards={matchedCards} />
+      }
+      {allCardsMatched && <GameOver handleClick={resetGame}/>}
       {isGameOn && <Card 
                       handleClick={turnCard} 
                       data={emojisData}
