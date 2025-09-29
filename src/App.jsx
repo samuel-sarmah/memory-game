@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import Form from "./components/Form"
 import Card from "./components/Card"
 import AssistiveTechInfo from "./components/AssistiveTechInfo";
+import GameOver from "./components/GameOver";
 
 
 
@@ -96,6 +97,7 @@ function App() {
                                             emojisData={emojisData}
                                             matchedCards={matchedCards} />
                                           }
+      {allCardsMatched && <GameOver />}
       {isGameOn && <Card 
                       handleClick={turnCard} 
                       data={emojisData}
