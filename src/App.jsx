@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Form from "./components/Form"
 import Card from "./components/Card"
+import AssistiveTechInfo from "./components/AssistiveTechInfo";
 
 
 
@@ -91,6 +92,10 @@ function App() {
     <main >
       <h1>Memory!</h1>
       {!isGameOn && <Form handleSubmit={startGame} />}
+      {(isGameOn && !allCardsMatched) && <AssistiveTechInfo
+                                            emojisData={emojisData}
+                                            matchedCards={matchedCards} />
+                                          }
       {isGameOn && <Card 
                       handleClick={turnCard} 
                       data={emojisData}
