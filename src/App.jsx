@@ -53,6 +53,16 @@ function App() {
     return randomIndicesArray;
   }
 
+  function getEmojisArray(data) {
+    const pairedEmojisArray = [...data];
+    for (let i = pairedEmojisArray.length - 1; i > 0; i--) {
+      // Fisher yates algorithm
+      const j = Math.floor(Math.random() * (i + 1))
+      [pairedEmojisArray[i], pairedEmojisArray[j]] = [pairedEmojisArray[j], pairedEmojisArray[i]]
+    }
+    return pairedEmojisArray;
+  }
+
   function turnCard() {
     console.log("Card has been clicked.")
   }
