@@ -1,8 +1,9 @@
 import RegularButton from "./RegularButton"
 
+
 export default function GameOver({ handleClick }) {
     return (
-        <div className="wrapper wrapper-accent">
+        <div className="wrapper wrapper--accent">
             <p className="p--large">
                 You've matched all the memory cards!
             </p>

@@ -3,8 +3,6 @@ import Form from "./components/Form"
 import Card from "./components/Card"
 import AssistiveTechInfo from "./components/AssistiveTechInfo";
 import GameOver from "./components/GameOver";
-import './index.css'
-
 
 
 function App() {
