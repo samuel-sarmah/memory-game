@@ -1,13 +1,15 @@
-export default function Card({ handleClick }) {
-    const emojiArray = ['🐶', '🐷', '🐙', '🐛', '🐵', '🐶', '🐷', '🐙', '🐛', '🐵'];
+import { decodeEntity } from "html-entities"
 
-    const emojiEl = emojiArray.map((emoji, index) => {
+export default function Card({ handleClick, data }) {
+
+    console.log(data)
+    const emojiEl = data.map((emoji, index) => 
         <li key={index} className="card-item">
             <button className="btn btn--emoji" onClick={handleClick}>
-                {emoji}
+                {decodeEntity(emoji.htmlCode[0])}
             </button>
         </li>
-    })
+    )
 
     return <ul className="card-container">{emojiEl}</ul>
 }
