@@ -7,6 +7,7 @@ import Card from "./components/Card"
 function App() {
   const [isGameOn, setIsGameOn] = useState(false);
   const [emojisData, setEmojisData] = useState('');
+  const [selectedCards, setSelectedCards] = useState([]);
 
   async function startGame(e) {
     e.preventDefault();
@@ -19,8 +20,7 @@ function App() {
 
       const data =  await response.json();
       const dataSlice = getDataSlice(data);
-      const emojisArray = getEmojisArray(dataSlice)
-      console.log(emojisArray);
+      const emojisArray = getEmojisArray(dataSlice);
        
       setEmojisData(emojisArray)
       setIsGameOn(true);
@@ -63,7 +63,13 @@ function App() {
   }
 
   function turnCard(name, index) {
-    console.log(`${name} card at index ${index} has been clicked!`)
+    setSelectedCards([
+      {
+        index: index,
+        name: name,
+      }
+    ])
+    console.log(selectedCards)
   }
 
   return (
