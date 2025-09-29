@@ -2,7 +2,6 @@ import { decodeEntity } from "html-entities"
 
 export default function Card({ handleClick, data }) {
 
-    console.log(data)
     const emojiEl = data.map((emoji, index) => 
         <li key={index} className="card-item">
             <button className="btn btn--emoji" onClick={handleClick}>
