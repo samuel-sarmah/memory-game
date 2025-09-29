@@ -22,5 +22,5 @@ export default function Card({ handleClick, data, selectedCards, matchedCards })
         )
     })
 
-    return <ul className="card-container">{emojiEl}</ul>
+    return <ul className="card-container">{cardEl}</ul>
 }
