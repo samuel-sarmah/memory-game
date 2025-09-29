@@ -4,10 +4,25 @@ import Card from "./components/Card"
 
 function App() {
   const [isGameOn, setIsGameOn] = useState(false);
+  const [emojisData, setEmojisData] = useState('');
 
-  function startGame(e) {
+  async function startGame(e) {
     e.preventDefault();
-    setIsGameOn(true)
+    try {
+      const response = await fetch("https://emojihub.yurace.pro/api/all/category/animals-and-nature")
+
+      if (!response) {
+        throw new Error("Could not fetch data from API")
+      }
+
+      const data =  await response.json();
+      const dataSample = data.slice(0, 5);
+      
+      setEmojisData(dataSample)
+      setIsGameOn(true);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   function turnCard() {
@@ -15,11 +30,11 @@ function App() {
   }
 
   return (
-    <>
+    <main >
       <h1>Memory!</h1>
-      {isGameOn && <Form handleSubmit={startGame} />}
-      {isGameOn && <Card handleClick={turnCard} />}
-    </>
+      {!isGameOn && <Form handleSubmit={startGame} />}
+      {isGameOn && <Card handleClick={turnCard} data={emojisData}/>}
+    </main>
   )
 }
 
