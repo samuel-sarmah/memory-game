@@ -2,12 +2,7 @@ import { useState } from "react"
 import Form from "./components/Form"
 import Card from "./components/Card"
 
-/**
- * To do:
- * step 1: Get random emojis from API
- * step 2: Duplicate unique emojis
- * step 3: shuffle emojis data 
- */
+
 
 function App() {
   const [isGameOn, setIsGameOn] = useState(false);
@@ -25,6 +20,7 @@ function App() {
       const data =  await response.json();
       const dataSlice = getDataSlice(data);
       const emojisArray = getEmojisArray(dataSlice)
+      console.log(emojisArray);
        
       setEmojisData(emojisArray)
       setIsGameOn(true);
@@ -66,8 +62,8 @@ function App() {
     return pairedEmojisArray;
   }
 
-  function turnCard() {
-    console.log("Card has been clicked.")
+  function turnCard(name, index) {
+    console.log(`${name} card at index ${index} has been clicked!`)
   }
 
   return (
