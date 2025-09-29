@@ -84,7 +84,7 @@ function App() {
     } else if (!selectedCardEntry && selectedCards.length === 2){
       setSelectedCards([{ name, index }])
     }
-    console.log(selectedCards)
+    console.log("clicked")
   }
 
   return (
