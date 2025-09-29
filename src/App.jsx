@@ -65,8 +65,8 @@ function App() {
   function turnCard(name, index) {
     setSelectedCards([
       {
-        index: index,
-        name: name,
+        index,
+        name,
       }
     ])
     console.log(selectedCards)
